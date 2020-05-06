@@ -7,6 +7,7 @@ namespace WebAppMVC.Models
 {
     public class FlexibleDiscountHelper : IDiscountHelper
     {
+        public int Flexible { get; set; }
         public decimal ApplyDiscount(decimal total)
         {
             decimal discount = total > 100 ? 70 : 25;

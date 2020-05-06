@@ -35,7 +35,9 @@ namespace WebAppMVC.Infrastructure
         private void AddBinding()
         {
             kernel.Bind<IValueCalculator>().To<LinqValueCalculatorNew>().InRequestScope();
+            //
             kernel.Bind<IDiscountHelper>().To<DefaultDiscountHelper>().WithConstructorArgument("_discounterSize", 50M);
+            //当在LinqValueCalculatorNew中需要IDiscountHelper细节时，使用FlexibleDiscountHelper
             kernel.Bind<IDiscountHelper>().To<FlexibleDiscountHelper>().WhenInjectedInto<LinqValueCalculatorNew>();
         }
     }

@@ -7,6 +7,8 @@ namespace WebAppMVC.Models
 {
     public class MinimumDiscountHelper : IDiscountHelper
     {
+        public int Minimum { get; set; }
+
         public decimal ApplyDiscount(decimal total)
         {
             if (total < 0)
